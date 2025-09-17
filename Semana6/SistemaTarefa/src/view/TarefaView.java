@@ -8,6 +8,12 @@ import javax.swing.*;
 
 public class TarefaView {
 
+    private TarefaService tarefaService;
+
+    public TarefaView(TarefaService tarefaService){
+        this.tarefaService = tarefaService;
+    }
+
     public int telaInicial() {
         String[] menu = {"Listar", "Cadastrar", "Alterar", "Excluir"};
         return JOptionPane.showOptionDialog(
@@ -23,7 +29,6 @@ public class TarefaView {
     }
 
     public void telaListagem() {
-        TarefaService tarefaService = new TarefaService();
         String listaTarefas = tarefaService.listar();
 
         JOptionPane.showMessageDialog(
@@ -39,13 +44,11 @@ public class TarefaView {
                 "CADASTRO DE TAREFA\n\nTítulo:"
         );
 
-        TarefaService tarefaService = new TarefaService();
         tarefaService.cadastrar(titulo);
         JOptionPane.showMessageDialog(null, "Tarefa cadastrada com sucesso");
     }
 
     public void telaExclusao() {
-        TarefaService tarefaService = new TarefaService();
         String listaTarefas = tarefaService.listar();
 
         Long id = Long.parseLong(
@@ -68,7 +71,6 @@ public class TarefaView {
     }
 
     public void telaAlteracao() {
-        TarefaService tarefaService = new TarefaService();
         String listaTarefas = tarefaService.listar();
 
         Long id = Long.parseLong(

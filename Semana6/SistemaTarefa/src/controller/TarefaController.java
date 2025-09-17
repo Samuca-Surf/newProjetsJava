@@ -9,10 +9,15 @@ import java.util.ArrayList;
 
 public class TarefaController {
 
+    private TarefaView tarefaView;
+
+    public TarefaController(TarefaView tarefaView){
+        this.tarefaView = tarefaView;
+    }
+
     public void iniciar() {
         int opcao = 0;
         do {
-            TarefaView tarefaView = new TarefaView();
             opcao = tarefaView.telaInicial();
             switch (opcao) {
                 case 0 -> this.listar(); //Fazer lista
@@ -25,26 +30,19 @@ public class TarefaController {
     }
 
     public void listar() {
-        TarefaView tv = new TarefaView();
-        tv.telaListagem();
+        tarefaView.telaListagem();
     }
 
     public void cadastrar() {
-        TarefaView tarefaView = new TarefaView();
         tarefaView.telaCadastro();
     }
 
     public void alterar() {
-        TarefaView tarefaView = new TarefaView();
         tarefaView.telaAlteracao();
-
-
     }
 
     public void excluir() {
-        TarefaView tarefaView = new TarefaView();
         tarefaView.telaExclusao();
-
     }
 
 }
