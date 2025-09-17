@@ -25,11 +25,8 @@ public class TarefaController {
     }
 
     public void listar() {
-        TarefaService tarefaService = new TarefaService();
-        String listaTarefas = tarefaService.listar();
-
         TarefaView tv = new TarefaView();
-        tv.telaListagem(listaTarefas);
+        tv.telaListagem();
     }
 
     public void cadastrar() {
@@ -46,9 +43,8 @@ public class TarefaController {
 
     public void excluir() {
         TarefaView tarefaView = new TarefaView();
-        Long id = tarefaView.telaExclusao();
-        TarefaService tarefaService = new TarefaService();
-        tarefaService.excluir(id);
+        tarefaView.telaExclusao();
+
     }
 
 }

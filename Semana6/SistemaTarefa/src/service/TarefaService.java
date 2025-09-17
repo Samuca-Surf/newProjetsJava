@@ -43,4 +43,14 @@ public class TarefaService {
         }
     }
 
+    public Tarefa buscarPorId(Long id) {
+        Tarefa tarefaEncontrada = null;
+        for (int i = 0; i < tarefas.size(); i++) {
+            if (tarefas.get(i).getId().equals(id)) {
+                tarefaEncontrada = tarefas.get(i);
+            }
+        }
+        return tarefaEncontrada;
+    }
+
 }
